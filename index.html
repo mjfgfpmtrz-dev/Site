@@ -3,23 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Necropof — digital alchemist</title>
-
-  <!-- fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+  <title>Necropof — портфолио</title>
 
   <style>
     :root{
-      --bg:#0b0f19;
-      --card:#111827;
-      --accent:#38bdf8;
-      --glow:#0ea5e9;
-      --text:#f3f4f6;
-      --sub:#9ca3af;
+      --bg:#0a0a0a;
+      --card:#111111;
+      --accent:#39ff14;
+      --glow:#33e90d;
+      --text:#e6ffe6;
+      --sub:#6b6b6b;
     }
-    *{box-sizing:border-box;margin:0;padding:0;font-family:'Space Grotesk',sans-serif}
+    *{box-sizing:border-box;margin:0;padding:0;font-family:'Courier New',monospace}
     body{
       background:var(--bg);
       color:var(--text);
@@ -28,38 +23,30 @@
       position:relative;
     }
 
-    /* ---------- falling lightnings ---------- */
-    .lightning{
+    /* ---------- падающие цифры ---------- */
+    .rain{
       position:fixed;
-      top:-150px;
-      width:1px;
-      height:140px;
-      background:linear-gradient(to bottom,var(--accent),transparent);
-      opacity:0;
-      animation:strike 7s linear infinite;
+      top:-100px;
+      font-size:18px;
+      color:var(--accent);
+      opacity:.18;
+      animation:fall 7s linear infinite;
     }
-    @keyframes strike{
-      0%   { top:-150px; opacity:0; }
-      5%   { opacity:.9; }
-      100% { top:110%; opacity:0; }
+    @keyframes fall{
+      to{transform:translateY(110vh)}
     }
-    .l1{left:10%;animation-delay:0s}
-    .l2{left:30%;animation-delay:1.4s}
-    .l3{left:50%;animation-delay:2.8s}
-    .l4{left:70%;animation-delay:4.2s}
-    .l5{left:85%;animation-delay:5.6s}
 
-    /* ---------- animations ---------- */
+    /* ---------- анимации ---------- */
     @keyframes fadeUp{
-      from{opacity:0;transform:translateY(50px)}
+      from{opacity:0;transform:translateY(40px)}
       to{opacity:1;transform:translateY(0)}
     }
     @keyframes float{
       0%,100%{transform:translateY(0)}
-      50%{transform:translateY(-7px)}
+      50%{transform:translateY(-6px)}
     }
 
-    /* ---------- header ---------- */
+    /* ---------- шапка ---------- */
     header{
       text-align:center;
       padding:5rem 1rem 3rem;
@@ -68,30 +55,29 @@
     header h1{
       font-size:clamp(2.2rem,6vw,3.5rem);
       letter-spacing:-2px;
-      background:linear-gradient(90deg,var(--accent),#818cf8);
-      -webkit-background-clip:text;
-      -webkit-text-fill-color:transparent;
+      color:var(--accent);
+      text-shadow:0 0 8px var(--glow);
       margin-bottom:.5rem;
     }
-    header p{color:var(--sub;font-size:1.05rem)}
+    header p{color:var(--sub);font-size:1.05rem}
     header a{
       display:inline-block;
       margin-top:1.5rem;
-      border:2px solid var(--accent);
-      color:var(--accent);
-      padding:.7rem 1.8rem;
+      background:var(--accent);
+      color:var(--bg);
+      padding:.8rem 1.8rem;
       border-radius:30px;
       font-weight:700;
       text-decoration:none;
       transition:.3s;
+      box-shadow:0 0 12px var(--glow);
     }
     header a:hover{
-      background:var(--accent);
-      color:var(--bg);
+      transform:scale(1.05);
       box-shadow:0 0 20px var(--glow);
     }
 
-    /* ---------- cards ---------- */
+    /* ---------- карточки ---------- */
     main{
       max-width:1000px;
       margin:0 auto;
@@ -103,23 +89,23 @@
     }
     .card{
       background:var(--card);
-      border:1px solid #1f2937;
-      border-radius:18px;
+      border:1px solid #222;
+      border-radius:16px;
       padding:2rem;
       transition:transform .3s,box-shadow .3s;
-      animation:float 5s ease-in-out infinite;
+      animation:float 4s ease-in-out infinite;
     }
     .card:nth-child(2n){animation-delay:.4s}
     .card:hover{
-      transform:translateY(-10px) scale(1.02);
-      box-shadow:0 0 30px var(--glow);
+      transform:translateY(-10px);
+      box-shadow:0 0 25px var(--glow);
     }
     .card h3{
       font-size:1.4rem;
       margin-bottom:.6rem;
       color:var(--accent);
     }
-    .card p{color:var(--sub);line-height:1.55}
+    .card p{color:var(--sub);line-height:1.5}
     .price{
       margin-top:1.2rem;
       font-weight:700;
@@ -137,59 +123,66 @@
 </head>
 <body>
 
-  <!-- lightnings -->
-  <div class="lightning l1"></div>
-  <div class="lightning l2"></div>
-  <div class="lightning l3"></div>
-  <div class="lightning l4"></div>
-  <div class="lightning l5"></div>
+  <!-- code rain -->
+  <script>
+    const chars='0123456789ABCDEF';
+    for(let i=0;i<25;i++){
+      const d=document.createElement('div');
+      d.className='rain';
+      d.style.left=Math.random()*100+'%';
+      d.textContent=chars[Math.floor(Math.random()*chars.length)];
+      d.style.animationDuration=(5+Math.random()*4)+'s';
+      d.style.animationDelay=Math.random()*5+'s';
+      document.body.appendChild(d);
+    }
+  </script>
 
   <header>
     <h1>Necropof</h1>
-    <p>digital alchemist • python • automation</p>
-    <a href="https://t.me/Necropof" target="_blank">@Necropof</a>
+    <p>разработка • автоматизация • парсинг</p>
+    <a href="https://t.me/Necropof" target="_blank">Написать мне</a>
   </header>
 
   <main>
     <div class="card">
-      <h3>Telegram Bots</h3>
-      <p>Payments, inline keyboards, admin panels, webhooks, any complexity.</p>
-      <div class="price">from 20 $</div>
+      <h3>Telegram-боты</h3>
+      <p>Оплаты, админ-панели, парсинг, инлайн-клавиатуры, любая логика.</p>
+      <div class="price">от 20 $</div>
     </div>
 
     <div class="card">
-      <h3>Landing / Full-site</h3>
-      <p>Responsive, SEO-ready, modern UI, deployment & domain included.</p>
-      <div class="price">from 50 $</div>
+      <h3>Сайты «под ключ»</h3>
+      <p>Лендинги, многостраничники, адаптив, SEO, деплой и домен в подарок.</p>
+      <div class="price">от 50 $</div>
     </div>
 
     <div class="card">
-      <h3>Parsers & API glue</h3>
-      <p>Scrape data, export CSV/Excel, schedule jobs, bypass protections.</p>
-      <div class="price">from 15 $</div>
+      <h3>Парсеры & API</h3>
+      <p>Сбор данных, Excel/CSV, cron, обход защит, автоматические отчёты.</p>
+      <div class="price">от 15 $</div>
     </div>
 
     <div class="card">
-      <h3>Deal Escrow</h3>
-      <p>Trusted middle-man or my personal bond for safe deals.</p>
+      <h3>Гарант / Ручение</h3>
+      <p>Безопасная сделка через проверенного гаранта или моё ручение.</p>
       <div class="price">150 %</div>
     </div>
 
     <div class="card">
-      <h3>Virtual Assistant</h3>
-      <p>Week-based support: moderation, tickets, reports, server watch.</p>
-      <div class="price">10 $ / week</div>
+      <h3>Заместитель / Ассистент</h3>
+      <p>Недельная поддержка: модерация, переписка, отчёты, техническая помощь.</p>
+      <div class="price">10 $ / неделя</div>
     </div>
 
     <div class="card">
-      <h3>Free Consultation</h3>
-      <p>Stack choice, architecture review, security checklist.</p>
+      <h3>Консультация</h3>
+      <p>Помогу выбрать стек, составить ТЗ, проконсультировать по безопасности.</p>
       <div class="price">0 $</div>
     </div>
   </main>
 
   <footer>
-    2025 &copy; Necropof — payments: USDT (TRC-20) / SBP / СБП
+    2026 &copy; Necropof — оплата: USDT (TRC-20) / СБП
   </footer>
 
 </body>
