@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Necropof — портфолио</title>
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💀</text></svg>">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#0d0d0d;
+      --card:#1a1a1a;
+      --accent:#00ff9d;
+      --text:#e5e5e5;
+      --sub:#888;
+    }
+    *{box-sizing:border-box;margin:0;padding:0;font-family:'Inter',sans-serif}
+    body{
+      background:var(--bg);
+      color:var(--text);
+      min-height:100vh;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      padding:0 1rem;
+    }
+    header{
+      width:100%;
+      max-width:900px;
+      padding:2.5rem 0 1.5rem;
+      text-align:center;
+    }
+    header h1{
+      font-size:2.2rem;
+      letter-spacing:-1px;
+      margin-bottom:.5rem;
+    }
+    header p{
+      color:var(--sub);
+      font-size:1rem;
+    }
+    header a.btn{
+      display:inline-block;
+      margin-top:1.2rem;
+      background:var(--accent);
+      color:#000;
+      padding:.7rem 1.4rem;
+      border-radius:30px;
+      font-weight:600;
+      text-decoration:none;
+      transition:transform .2s;
+    }
+    header a.btn:hover{transform:scale(1.05)}
+    main{
+      width:100%;
+      max-width:900px;
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:1.5rem;
+      padding-bottom:3rem;
+    }
+    .card{
+      background:var(--card);
+      border:1px solid #222;
+      border-radius:16px;
+      padding:1.8rem 1.5rem;
+      backdrop-filter:blur(10px);
+      transition:transform .2s,box-shadow .2s;
+    }
+    .card:hover{
+      transform:translateY(-6px);
+      box-shadow:0 0 20px rgba(0,255,157,.25);
+    }
+    .card h3{
+      font-size:1.3rem;
+      margin-bottom:.6rem;
+      color:var(--accent);
+    }
+    .card p{
+      color:var(--sub);
+      line-height:1.4;
+    }
+    .price{
+      margin-top:1rem;
+      font-weight:700;
+      font-size:1.05rem;
+      color:var(--text);
+    }
+    footer{
+      width:100%;
+      text-align:center;
+      padding:1.5rem 0 2rem;
+      font-size:.8rem;
+      color:var(--sub);
+    }
+    /* анимация появления */
+    @keyframes fade{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+    header,main{animation:fade .8s ease-out forwards}
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Necropof</h1>
+  <p>IT-услуги / Разработка / Автоматизация</p>
+  <a class="btn" href="https://t.me/Necropof" target="_blank">Написать в Telegram</a>
+</header>
+
+<main>
+  <div class="card">
+    <h3>Telegram-боты</h3>
+    <p>Автоматизация, парсинг, платежи, админ-панели и любые интеграции.</p>
+    <div class="price">от 20 $</div>
+  </div>
+
+  <div class="card">
+    <h3>Сайты «под ключ»</h3>
+    <p>Лендинги, многостраничники, адаптивность, SEO, хостинг и домен в подарок.</p>
+    <div class="price">от 50 $</div>
+  </div>
+
+  <div class="card">
+    <h3>Парсеры & API</h3>
+    <p>Сбор данных с сайтов, выгрузка в Excel/CSV, автоматические отчёты.</p>
+    <div class="price">от 15 $</div>
+  </div>
+
+  <div class="card">
+    <h3>Гарант / Ручение</h3>
+    <p>Безопасная сделка через известного гаранта или моё личное ручение.</p>
+    <div class="price">150 %</div>
+  </div>
+
+  <div class="card">
+    <h3>Заместитель / Ассистент</h3>
+    <p>Поддержка проектов, модерация, переписка, техническая помощь.</p>
+    <div class="price">1 200 ₽ / неделя</div>
+  </div>
+
+  <div class="card">
+    <h3>Консультация</h3>
+    <p>Помогу выбрать стек, расписать ТЗ, проконсультировать по безопасности.</p>
+    <div class="price">Бесплатно</div>
+  </div>
+</main>
+
+<footer>
+  2025 &copy; Necropof — все услуги оказываются онлайн, оплата USDT / SBP / СБП
+</footer>
+
+</body>
+</html>
