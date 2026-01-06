@@ -7,12 +7,12 @@
 
   <style>
     :root{
-      --bg:#0a0a0a;
-      --card:#111111;
+      --bg:#020202;
+      --card:#0a0c10;
       --accent:#39ff14;
       --glow:#33e90d;
-      --text:#e6ffe6;
-      --sub:#6b6b6b;
+      --text:#e1ffe1;
+      --sub:#555;
     }
     *{box-sizing:border-box;margin:0;padding:0;font-family:'Courier New',monospace}
     body{
@@ -21,9 +21,10 @@
       min-height:100vh;
       overflow-x:hidden;
       position:relative;
+      perspective:1200px;
     }
 
-    /* ---------- падающие цифры ---------- */
+    /* ---------- code rain ---------- */
     .rain{
       position:fixed;
       top:-100px;
@@ -36,17 +37,17 @@
       to{transform:translateY(110vh)}
     }
 
-    /* ---------- анимации ---------- */
+    /* ---------- animations ---------- */
     @keyframes fadeUp{
-      from{opacity:0;transform:translateY(40px)}
+      from{opacity:0;transform:translateY(60px)}
       to{opacity:1;transform:translateY(0)}
     }
-    @keyframes float{
-      0%,100%{transform:translateY(0)}
-      50%{transform:translateY(-6px)}
+    @keyframes tiltIn{
+      from{transform:translateY(40px) rotateX(-20deg)}
+      to{transform:translateY(0) rotateX(0)}
     }
 
-    /* ---------- шапка ---------- */
+    /* ---------- header ---------- */
     header{
       text-align:center;
       padding:5rem 1rem 3rem;
@@ -56,7 +57,7 @@
       font-size:clamp(2.2rem,6vw,3.5rem);
       letter-spacing:-2px;
       color:var(--accent);
-      text-shadow:0 0 8px var(--glow);
+      text-shadow:0 0 10px var(--glow);
       margin-bottom:.5rem;
     }
     header p{color:var(--sub);font-size:1.05rem}
@@ -74,10 +75,10 @@
     }
     header a:hover{
       transform:scale(1.05);
-      box-shadow:0 0 20px var(--glow);
+      box-shadow:0 0 25px var(--glow);
     }
 
-    /* ---------- карточки ---------- */
+    /* ---------- cards ---------- */
     main{
       max-width:1000px;
       margin:0 auto;
@@ -89,23 +90,31 @@
     }
     .card{
       background:var(--card);
-      border:1px solid #222;
-      border-radius:16px;
+      border:1px solid rgba(57,255,20,.25);
+      border-radius:18px;
       padding:2rem;
-      transition:transform .3s,box-shadow .3s;
-      animation:float 4s ease-in-out infinite;
+      transform-style:preserve-3d;
+      transition:transform .4s,box-shadow .4s;
+      animation:tiltIn .8s both;
+      opacity:0;
     }
-    .card:nth-child(2n){animation-delay:.4s}
+    .card:nth-child(1){animation-delay:.1s}
+    .card:nth-child(2){animation-delay:.2s}
+    .card:nth-child(3){animation-delay:.3s}
+    .card:nth-child(4){animation-delay:.4s}
+    .card:nth-child(5){animation-delay:.5s}
+    .card:nth-child(6){animation-delay:.6s}
+
     .card:hover{
-      transform:translateY(-10px);
-      box-shadow:0 0 25px var(--glow);
+      transform:translateY(-10px) rotateX(5deg) rotateY(-4deg) scale(1.03);
+      box-shadow:0 15px 35px rgba(57,255,20,.25);
     }
     .card h3{
       font-size:1.4rem;
       margin-bottom:.6rem;
       color:var(--accent);
     }
-    .card p{color:var(--sub);line-height:1.5}
+    .card p{color:var(--sub);line-height:1.6}
     .price{
       margin-top:1.2rem;
       font-weight:700;
@@ -146,43 +155,43 @@
   <main>
     <div class="card">
       <h3>Telegram-боты</h3>
-      <p>Оплаты, админ-панели, парсинг, инлайн-клавиатуры, любая логика.</p>
+      <p>От простого опросника до полноценного магазина с платежами и админкой. Придумаю, сварю, запущу.</p>
       <div class="price">от 20 $</div>
     </div>
 
     <div class="card">
       <h3>Сайты «под ключ»</h3>
-      <p>Лендинги, многостраничники, адаптив, SEO, деплой и домен в подарок.</p>
+      <p>Лендинг, который продаёт, или корпоративный монстр с личными кабинетами. Адаптив, скорость, SEO — по умолчанию.</p>
       <div class="price">от 50 $</div>
     </div>
 
     <div class="card">
       <h3>Парсеры & API</h3>
-      <p>Сбор данных, Excel/CSV, cron, обход защит, автоматические отчёты.</p>
+      <p>Соберу любые данные, обойду Cloudflare, поставлю на cron и пришлю отчёт в Telegram каждое утро.</p>
       <div class="price">от 15 $</div>
     </div>
 
     <div class="card">
       <h3>Гарант / Ручение</h3>
-      <p>Безопасная сделка через проверенного гаранта или моё ручение.</p>
+      <p>Надёжный посредник для сделок: держу деньги, пока обе стороны не довольны.</p>
       <div class="price">150 %</div>
     </div>
 
     <div class="card">
       <h3>Заместитель / Ассистент</h3>
-      <p>Недельная поддержка: модерация, переписка, отчёты, техническая помощь.</p>
+      <p>На неделю становлюсь вашим модератором, техподдержкой и системным админом. Отвечу на 500 сообщений, прежде чем проснуться.</p>
       <div class="price">10 $ / неделя</div>
     </div>
 
     <div class="card">
       <h3>Консультация</h3>
-      <p>Помогу выбрать стек, составить ТЗ, проконсультировать по безопасности.</p>
+      <p>Хаотичный мозговой штурм или структурированный разбор — выбирайте сами. Платите только если стало полезно.</p>
       <div class="price">0 $</div>
     </div>
   </main>
 
   <footer>
-    2026 &copy; Necropof — оплата: USDT (TRC-20) / СБП
+    2026 &copy; Necropof — оплата: USDT (TRC-20) / монобанк
   </footer>
 
 </body>
