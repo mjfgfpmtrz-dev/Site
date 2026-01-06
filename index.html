@@ -7,8 +7,8 @@
 
   <style>
     :root{
-      --bg:#020202;
-      --card:#0a0c10;
+      --bg:#0a0a0a;
+      --card:#111111;
       --accent:#39ff14;
       --glow:#33e90d;
       --text:#e1ffe1;
@@ -20,11 +20,10 @@
       color:var(--text);
       min-height:100vh;
       overflow-x:hidden;
-      position:relative;
       perspective:1200px;
     }
 
-    /* ---------- code rain ---------- */
+    /* code rain */
     .rain{
       position:fixed;
       top:-100px;
@@ -37,30 +36,18 @@
       to{transform:translateY(110vh)}
     }
 
-    /* ---------- animations ---------- */
-    @keyframes fadeUp{
-      from{opacity:0;transform:translateY(60px)}
-      to{opacity:1;transform:translateY(0)}
-    }
-    @keyframes tiltIn{
-      from{transform:translateY(40px) rotateX(-20deg)}
-      to{transform:translateY(0) rotateX(0)}
-    }
-
-    /* ---------- header ---------- */
+    /* header */
     header{
       text-align:center;
       padding:5rem 1rem 3rem;
-      animation:fadeUp 1s both;
     }
     header h1{
       font-size:clamp(2.2rem,6vw,3.5rem);
-      letter-spacing:-2px;
       color:var(--accent);
       text-shadow:0 0 10px var(--glow);
       margin-bottom:.5rem;
     }
-    header p{color:var(--sub);font-size:1.05rem}
+    header p{color:var(--sub)}
     header a{
       display:inline-block;
       margin-top:1.5rem;
@@ -78,7 +65,7 @@
       box-shadow:0 0 25px var(--glow);
     }
 
-    /* ---------- cards ---------- */
+    /* cards */
     main{
       max-width:1000px;
       margin:0 auto;
@@ -86,28 +73,19 @@
       display:grid;
       grid-template-columns:repeat(auto-fit,minmax(270px,1fr));
       gap:2rem;
-      animation:fadeUp 1s .3s both;
     }
     .card{
       background:var(--card);
-      border:1px solid rgba(57,255,20,.25);
-      border-radius:18px;
+      border:1px solid rgba(57,255,20,.2);
+      border-radius:16px;
       padding:2rem;
+      transition:transform .4s,box-shadow .4s,border-color .4s;
       transform-style:preserve-3d;
-      transition:transform .4s,box-shadow .4s;
-      animation:tiltIn .8s both;
-      opacity:0;
     }
-    .card:nth-child(1){animation-delay:.1s}
-    .card:nth-child(2){animation-delay:.2s}
-    .card:nth-child(3){animation-delay:.3s}
-    .card:nth-child(4){animation-delay:.4s}
-    .card:nth-child(5){animation-delay:.5s}
-    .card:nth-child(6){animation-delay:.6s}
-
     .card:hover{
-      transform:translateY(-10px) rotateX(5deg) rotateY(-4deg) scale(1.03);
-      box-shadow:0 15px 35px rgba(57,255,20,.25);
+      transform:rotateX(8deg) rotateY(-4deg) scale(1.03);
+      border-color:var(--accent);
+      box-shadow:0 15px 30px rgba(57,255,20,.25);
     }
     .card h3{
       font-size:1.4rem;
@@ -155,43 +133,43 @@
   <main>
     <div class="card">
       <h3>Telegram-боты</h3>
-      <p>От простого опросника до полноценного магазина с платежами и админкой. Придумаю, сварю, запущу.</p>
+      <p>Оплаты, админ-панели, парсинг, инлайн-клавиатуры, любая логика.</p>
       <div class="price">от 20 $</div>
     </div>
 
     <div class="card">
       <h3>Сайты «под ключ»</h3>
-      <p>Лендинг, который продаёт, или корпоративный монстр с личными кабинетами. Адаптив, скорость, SEO — по умолчанию.</p>
+      <p>Лендинги, многостраничники, адаптив, SEO, деплой и домен в подарок.</p>
       <div class="price">от 50 $</div>
     </div>
 
     <div class="card">
       <h3>Парсеры & API</h3>
-      <p>Соберу любые данные, обойду Cloudflare, поставлю на cron и пришлю отчёт в Telegram каждое утро.</p>
+      <p>Сбор данных, Excel/CSV, cron, обход защит, автоматические отчёты.</p>
       <div class="price">от 15 $</div>
     </div>
 
     <div class="card">
       <h3>Гарант / Ручение</h3>
-      <p>Надёжный посредник для сделок: держу деньги, пока обе стороны не довольны.</p>
+      <p>Безопасная сделка через проверенного гаранта или моё ручение.</p>
       <div class="price">150 %</div>
     </div>
 
     <div class="card">
       <h3>Заместитель / Ассистент</h3>
-      <p>На неделю становлюсь вашим модератором, техподдержкой и системным админом. Отвечу на 500 сообщений, прежде чем проснуться.</p>
+      <p>Недельная поддержка: модерация, переписка, отчёты, техпомощь.</p>
       <div class="price">10 $ / неделя</div>
     </div>
 
     <div class="card">
       <h3>Консультация</h3>
-      <p>Хаотичный мозговой штурм или структурированный разбор — выбирайте сами. Платите только если стало полезно.</p>
+      <p>Помогу выбрать стек, составить ТЗ, проконсультировать по безопасности.</p>
       <div class="price">0 $</div>
     </div>
   </main>
 
   <footer>
-    2026 &copy; Necropof — оплата: USDT (TRC-20) / монобанк
+    2026 &copy; Necropof — оплата: USDT (TRC-20) / МОНО
   </footer>
 
 </body>
